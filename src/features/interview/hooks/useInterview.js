@@ -27,6 +27,8 @@ export const useInterview = () => {
             setLoading(false)
         }
 
+        console.log("FRONTEND DATA:", response);
+
         return response.interviewReport
     }
 
