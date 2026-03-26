@@ -1,6 +1,6 @@
 @use "sass:color";
 
-// Shared Variables (mirrors home.scss theme)
+// Variables 
 $bg-page: #0d1117;
 $bg-card: #161b22;
 $bg-panel: #1c2230;
@@ -11,7 +11,6 @@ $text-muted: #7d8590;
 $accent: #ff2d78;
 $font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-// severity palette
 $severity-high: #ff4d4d;
 $severity-medium: #f5a623;
 $severity-low: #3fb950;
@@ -20,7 +19,6 @@ $severity-low: #3fb950;
     display: none;
 }
 
-// ── Page Shell ────────────────────────────────────────────────────────────────
 .interview-page {
     width: 100%;
     min-height: 100vh;
@@ -33,7 +31,6 @@ $severity-low: #3fb950;
     box-sizing: border-box;
 }
 
-// ── 3-Column Layout ───────────────────────────────────────────────────────────
 .interview-layout {
     display: flex;
     width: 100%;
@@ -51,7 +48,6 @@ $severity-low: #3fb950;
     flex-shrink: 0;
 }
 
-// ── Left Nav ─────────────────────────────────────────────────────────────────
 .interview-nav {
     width: 220px;
     flex-shrink: 0;
@@ -112,7 +108,7 @@ $severity-low: #3fb950;
     }
 }
 
-// ── Center Content ────────────────────────────────────────────────────────────
+
 .interview-content {
     flex: 1;
     padding: 1.75rem 2rem;
@@ -159,7 +155,6 @@ $severity-low: #3fb950;
     }
 }
 
-// ── Question Cards ────────────────────────────────────────────────────────────
 .q-list {
     display: flex;
     flex-direction: column;
@@ -264,14 +259,14 @@ $severity-low: #3fb950;
     }
 }
 
-// ── Road Map ──────────────────────────────────────────────────────────────────
+
 .roadmap-list {
     display: flex;
     flex-direction: column;
     gap: 0;
     position: relative;
 
-    // vertical timeline line
+  
     &::before {
         content: '';
         position: absolute;
@@ -291,7 +286,7 @@ $severity-low: #3fb950;
     padding: 0.75rem 0 0.75rem 3.5rem;
     position: relative;
 
-    // dot on timeline
+  
     &::before {
         content: '';
         position: absolute;
@@ -355,7 +350,6 @@ $severity-low: #3fb950;
     }
 }
 
-// ── Right Sidebar ─────────────────────────────────────────────────────────────
 .interview-sidebar {
     width: 240px;
     flex-shrink: 0;
@@ -370,7 +364,7 @@ $severity-low: #3fb950;
     background-color: $border-color;
 }
 
-// Match Score
+
 .match-score {
     display: flex;
     flex-direction: column;
@@ -431,7 +425,7 @@ $severity-low: #3fb950;
     }
 }
 
-// Skill Gaps
+
 .skill-gaps {
     display: flex;
     flex-direction: column;
@@ -477,5 +471,200 @@ $severity-low: #3fb950;
         color: $severity-low;
         background-color: rgba($severity-low, 0.1);
         border-color: rgba($severity-low, 0.25);
+    }
+}
+
+@media (max-width: 1024px) {
+    .interview-layout {
+        flex-direction: column;
+    }
+
+    .interview-divider {
+        display: none;
+    }
+
+ 
+    .interview-nav {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+        padding: 1rem;
+
+        .nav-content {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
+        }
+
+        &__label {
+            display: none;
+        }
+
+        &__item {
+            white-space: nowrap;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .primary-button {
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+    }
+
+    
+    .interview-sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.25rem;
+    }
+
+    .sidebar-divider {
+        display: none;
+    }
+
+    .match-score {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+
+        &__ring {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .skill-gaps {
+        flex: 1;
+        align-items: flex-end;
+
+        &__list {
+            justify-content: flex-end;
+        }
+    }
+
+
+    .interview-content {
+        max-height: none;
+        padding: 1.25rem;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .interview-page {
+        padding: 0.75rem;
+    }
+
+    .interview-layout {
+        border-radius: 0.75rem;
+    }
+
+ 
+    .interview-nav {
+        padding: 0.75rem;
+
+        &__item {
+            font-size: 0.8rem;
+        }
+
+        .primary-button {
+            font-size: 0.75rem;
+            padding: 0.5rem 0.75rem;
+        }
+    }
+
+   
+    .interview-sidebar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .match-score {
+        width: 100%;
+        justify-content: space-between;
+
+        &__ring {
+            width: 65px;
+            height: 65px;
+        }
+
+        &__value {
+            font-size: 1.4rem;
+        }
+    }
+
+    .skill-gaps {
+        width: 100%;
+
+        &__list {
+            justify-content: flex-start;
+        }
+    }
+
+
+    .interview-content {
+        padding: 1rem;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+
+        h2 {
+            font-size: 1rem;
+        }
+    }
+
+ 
+    .q-card {
+        &__header {
+            padding: 0.75rem;
+        }
+
+        &__question {
+            font-size: 0.85rem;
+        }
+
+        &__body {
+            padding: 0.75rem;
+        }
+    }
+
+
+    .roadmap-day {
+        padding-left: 2.5rem;
+
+        &::before {
+            left: 14px;
+        }
+    }
+
+    .roadmap-list::before {
+        left: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .interview-nav {
+        gap: 0.4rem;
+    }
+
+    .interview-nav__item {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .match-score__ring {
+        width: 55px;
+        height: 55px;
+    }
+
+    .match-score__value {
+        font-size: 1.2rem;
     }
 }
