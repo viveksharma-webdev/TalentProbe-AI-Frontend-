@@ -82,5 +82,5 @@ TalentProbe AI is a **MERN stack web application powered by Generative AI** that
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/talentprobe-ai.git
+git clone https://github.com/viveksharma-webdev/talentprobe-ai.git
 cd talentprobe-ai
